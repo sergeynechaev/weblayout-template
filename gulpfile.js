@@ -31,10 +31,10 @@ var serverConfig = {
 	    server: {
 	        baseDir: "./build"
 	    },
-	    tunnel: true,
+	    tunnel: false,
 	    host: 'localhost',
 	    port: 9000,
-	    logPrefix: "Gulp Dev Server"
+	    logPrefix: "Gulp Weblayout Server"
 };
 
 /* Paths */
@@ -45,9 +45,9 @@ var path = {
 	        html: rootBuild,
 	        jade: rootBuild,
 	        js: rootBuild + '/js',
-	        css: rootBuild + '/styles',
+	        css: rootBuild + '/css',
 	        img: rootBuild + '/img',
-	        fonts: rootBuild + '/js/vendor/fonts',
+	        fonts: rootBuild + '/vendor/fonts',
 	        bower: rootBuild + '/vendor',
 	        react: rootBuild + '/js'
 	    },
@@ -205,7 +205,7 @@ gulp.task('js', function () {
         //.pipe(uglify())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.build.js))
-        //.pipe(reload({stream: true}));
+        .pipe(reload({stream: true}));
 });
 
 
@@ -230,10 +230,15 @@ gulp.task('plainhtml', function () {
 
 
 // BUILD
-gulp.task('build', [
-    'compass',
+gulp.task('build', ['clean'], function () {
+    gulp.start(['sass', 'jade', 'js', 'bower', 'images', 'fonts']);
+});
+
+gulp.task('build:old', [
+    // 'compass',
+    'sass',
     'jade',
-    'react',
+    // 'react',
     'js',
     'bower',
     'images',
@@ -248,16 +253,17 @@ gulp.task('watch', function(){
  	watch([path.watch.fonts], function(event, cb) {
         gulp.start('fonts');
     });*/
-    watch([path.watch.style], function() { gulp.start('compass'); });
+    // watch([path.watch.style], function() { gulp.start('compass'); });
+    watch([path.watch.style], function() { gulp.start('css'); });
     watch([path.watch.jade], function() { gulp.start('jade'); });
-    watch([path.watch.react], function() { gulp.start('react'); });
+    // watch([path.watch.react], function() { gulp.start('react'); });
     watch([path.watch.js], function() { gulp.start('js'); });
     watch([path.watch.img], function() { gulp.start('images'); });
 });
 
 // MAIN TASK
-//gulp.task('default', ['build', 'webserver', 'watch']);
-gulp.task('default', ['clean'], function () {
-    gulp.start(['build', 'webserver', 'watch']);
-});
+gulp.task('default', ['build', 'webserver', 'watch']);
+// gulp.task('default', ['clean'], function () {
+//     gulp.start(['build', 'webserver', 'watch']);
+// });
 

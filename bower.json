@@ -17,4 +17,22 @@
     "jquery": "2.*",
     "react": "~0.13.3"
   }
+  // "overrides": {
+  //   "bootstrap": {
+  //     "main": [
+  //       "./dist/js/bootstrap.min.js",
+  //       "./dist/css/bootstrap.min.css",
+  //       "./dist/css/bootstrap-theme.min.css"
+  //     ]
+  //   },
+  //   "bootstrap-select": {
+  //     "main": [
+  //       "./dist/js/bootstrap-select.min.js",
+  //       "./dist/css/bootstrap-select.min.css"
+  //     ]
+  //   }
+  // }
 }
+
+
+
