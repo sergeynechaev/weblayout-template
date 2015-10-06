@@ -115,16 +115,28 @@ $gray-superlight: #dfe1e0;
 		color: $gray-dark;
 		margin: 0 0 2px 0;
 	}
-
 	&-company {
 		font-size: 12px;
 		color: $gray;
 	}
-
+	// &-notInContact{
+ //        @include flex-box;
+ //        @include justify-content(space-between);
+ //        font-size: 0.8em;
+ //        padding-top: 1px;
+ //    }
+ //    &-notInContact-text{
+ //        color: $brand-warning;
+ //    }
+ //    &-notInContact-action{
+ //        color: $green;
+ //        border-bottom: 1px dotted;
+ //        cursor: pointer;
+ //        margin-left: 8px;
+ //    }
 	&-unreaded {
 		color: $brand-success;
 	}
-
 	&-status {
 		margin: 0 0 0 5px;
 		width: 10px;
@@ -137,7 +149,32 @@ $gray-superlight: #dfe1e0;
 	        background-color: $brand-success !important;
 	    }
 	}
+	&-action {
+        margin-right: -5px;
+    }
+}
 
+.contact-center__channel{
+	&-title {
+		color: $gray-dark;
+		margin: 0 0 2px 0;
+	}
+	&-users {
+		font-size: 12px;
+		color: $gray;
+	}
+	&-unreaded {
+		color: $brand-success;
+	}
+	&-status {
+		margin: 0 0 0 5px;
+		width: 10px;
+        height: 10px;
+        border-radius: 50%;
+	    &[data-state=invite] {
+	        background-color: $gray-light;
+	    }
+	}
 }
 
 .contact-center__btn {
@@ -151,40 +188,36 @@ $gray-superlight: #dfe1e0;
 }
 
 .contact-center__tab {
+    text-align: center;
+    @include flex-box();
+    @include flex-direction(row);
+    @include flex-wrap(nowrap);
+    @include justify-content(space-between);
+    @include align-content(stretch);
+    @include align-items(center);
+    @include flex-grow(50);
+    margin: 0;
+    padding: 0;
+    /*width: 100%;*/
 
-	text-align: center;
-	@include flex-box();
-	@include flex-direction(row);
-	@include flex-wrap(nowrap);
-	@include justify-content(space-between);
-	@include align-content(stretch);
-	@include align-items(center);
-	@include flex-grow(50);
-	margin: 0;
-	padding: 0;
-	// width: 100%;
-	// 
-	&-left, &-right {
-		border-top: 1px solid $gray-superlight;
-		border-bottom: 1px solid $gray-superlight;
-		@include flex-grow(1);
-		padding: 5px 0;
-	}
-
-	&-left {
-		border-left: 1px solid $gray-superlight;
-		@include border-left-radius(3px);
-
-		&[data-state=active] {
-			background-color: $brand-success;
-			color: $font-invert;
-		}
-	}
-
-	&-right {
-		border-right: 1px solid $gray-superlight;
-		@include border-right-radius(3px);
-	}
+    &-left, &-right {
+        border-top: 1px solid $gray-superlight;
+        border-bottom: 1px solid $gray-superlight;
+        @include flex-grow(1);
+        padding: 5px;
+    }
+    &-left {
+        border-left: 1px solid $gray-superlight;
+        @include border-left-radius(3px);
+    }
+    &-right {
+        border-right: 1px solid $gray-superlight;
+        @include border-right-radius(3px);
+    }
+    &-left[data-state=active], &-right[data-state=active] {
+        background-color: $brand-success;
+        color: $font-invert;
+    }
 }
 
 .contact-center__search {

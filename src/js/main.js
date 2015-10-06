@@ -46,16 +46,16 @@ function replaceContentInContainer(matchClass, content) {
 window.onload = function () {
     console.log('works!');
 
-    var elements = document.querySelectorAll('.contact-center__block-header-title');
+    var elements = document.querySelectorAll('.contact-center__block-header');
     // console.log(elements);
 
     for( var i = 0; i < elements.length || 0; i++) {
     	console.log(elements[i]);
     	elements[i].addEventListener('click', function(e) {
     		// e.target = clicked element
-    		console.log(this.parentNode.parentNode);
-    		this.parentNode.parentNode.dataset.state = !this.parentNode.parentNode.dataset.state ? 'collapse' : '';
-    		console.log('clicked = ' + this.parentNode.parentNode.dataset.state);
+    		console.log(this.parentNode);
+    		this.parentNode.dataset.state = !this.parentNode.dataset.state ? 'collapse' : '';
+    		console.log('clicked = ' + this.parentNode.dataset.state);
     	});
     }
 
