@@ -254,7 +254,7 @@ gulp.task('watch', function(){
         gulp.start('fonts');
     });*/
     // watch([path.watch.style], function() { gulp.start('compass'); });
-    watch([path.watch.style], function() { gulp.start('css'); });
+    watch([path.watch.style], function() { gulp.start('sass'); });
     watch([path.watch.jade], function() { gulp.start('jade'); });
     // watch([path.watch.react], function() { gulp.start('react'); });
     watch([path.watch.js], function() { gulp.start('js'); });
