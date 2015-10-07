@@ -101,7 +101,7 @@
     flex-wrap: $val;
 }
 
-/* row by default */
+/* flex-direction = row by default */
 @mixin flex-direction($direction) {
     @if $direction == column {
         -webkit-flex-direction: vertical;

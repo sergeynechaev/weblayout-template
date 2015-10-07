@@ -15,13 +15,9 @@
 }
 
 // vars for cc
-$btn-add: #42bf89 !default;
-$font-invert: #fff;
-$gray-superlight: #dfe1e0;
 
-.pointer {
-	cursor: pointer;
-}
+
+
 
 /* cc = contact-center */
 .contact-center {
@@ -179,7 +175,7 @@ $gray-superlight: #dfe1e0;
 
 .contact-center__btn {
 	background-color: $brand-success;
-	color: $font-invert;
+	color: $color-invert;
 	padding: 1px 5px;
 	font-size: 16px;
 	@include border-radius(2px);
@@ -216,7 +212,7 @@ $gray-superlight: #dfe1e0;
     }
     &-left[data-state=active], &-right[data-state=active] {
         background-color: $brand-success;
-        color: $font-invert;
+        color: $color-invert;
     }
 }
 
