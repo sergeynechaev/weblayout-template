@@ -3,54 +3,8 @@ html
 	include partials/index-header.jade
 	body
 		.page
+
 			.sidebar
-				//- message history
-				.channel
-					.channel__header
-						.channel__header-title Чат: Сергей Нечаев
-						.channel__header-actions [x] [-]
-					.channel__content
-						div 
-							.channel__history#channel-history--1
-
-								.channel__message#channel-message--1
-									.channel__message-info 
-										.channel__message-user Сергей Нечаев
-										.channel__message-actions [ред] [del]
-										.channel__message-time 10:56
-									.channel__message-body Содержимое сообщений
-
-								.channel__message#channel-message--2(data-state="my")
-									.channel__message-info 
-										.channel__message-user Вы
-										.channel__message-actions [ред] [del]
-										.channel__message-time 10:56
-									.channel__message-body А вот еще случай был? А вот еще случай был, тут такое динное длинное предложение в несколько длинных длинных строк.
-
-								.channel__message#channel-message--3
-									.channel__message-info 
-										.channel__message-user Илья Суходольский
-										.channel__message-actions [ред] [del]
-										.channel__message-time 10:56
-									.channel__message-body Ох ты ж нифига себе!
-
-								.channel__message#channel-message--4(data-state="my")
-									.channel__message-info 
-										.channel__message-user Вы
-										.channel__message-actions [ред] [del]
-										.channel__message-time 10:56
-									.channel__message-body А вот еще случай был? А вот еще случай был, тут такое динное длинное предложение в несколько длинных длинных строк.
-
-								.channel__message#channel-message--5(data-state="my")
-									.channel__message-info 
-										.channel__message-user Вы
-										.channel__message-actions [ред] [del]
-										.channel__message-time 10:56
-									.channel__message-body А вот еще случай был? А вот еще случай был, тут такое динное длинное предложение в несколько длинных длинных строк.
-
-							.channel__history-alert.hidden Есть новые сообщения. 
-								span.channel__history-alert-action Посмотреть
-
 				//- contact-center sidebar
 				.contact-center(data-state="collapse")
 
@@ -132,5 +86,60 @@ html
 								div Subcontent 35
 								div SubSubcontent 3
 
+
+				//- message history
+				.channel-container
+					.channel
+
+						.channel__header
+							.channel__header-title Чат: Сергей Нечаев
+							.channel__header-actions [x] [-]
+
+						.channel__content
+							.channel__history#channel-history--1
+
+								.message#message--1
+									.message__info 
+										.message__user Сергей Нечаев
+										.message__actions [ред] [del]
+										.message__time 10:56
+									.message__body Содержимое сообщений
+
+								.message#message--2(data-state="my")
+									.message__info 
+										.message__user Вы
+										.message__actions [ред] [del]
+										.message__time 10:56
+									.message__body А вот еще случай был? А вот еще случай был, тут такое динное длинное предложение в несколько длинных длинных строк.
+
+								.message#channel-message__-3
+									.message__info 
+										.message__user Илья Суходольский
+										.message__actions [ред] [del]
+										.message__time 10:56
+									.message__body Ох ты ж нифига себе!
+
+								.message#channel-message__-4(data-state="my")
+									.message__info 
+										.message__user Вы
+										.message__actions [ред] [del]
+										.message__time 10:56
+									.message__body Авотещелучайбыл?Авотещеслучайбыл,туттакоединноедлинноепредложениевнесколькодлинныхдлинныхстрок.
+
+								.message#channel-message__-5(data-state="my")
+									.message__info 
+										.message__user Вы
+										.message__actions [ред] [del]
+										.message__time 10:56
+									.message__body А вот еще случай был? А вот еще случай был, тут такое динное длинное предложение в несколько длинных длинных строк.
+
+							.channel__history-alert.hidden Есть новые сообщения. 
+								span.channel__history-alert-action Посмотреть
+
+						.channel__sendarea
+							.channel__sendarea-actions +
+							.channel__sendarea-textarea
+								textarea
+							.channel__sendarea-emoji :)
 	
 	include partials/index-footer.jade

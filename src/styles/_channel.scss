@@ -3,22 +3,26 @@
 
 $color-message-my: #e9f2fb;
 $color-message: #f8f8f8;
+$font-size-h4: 1.142rem !default;
 
+.channel-container {
+	position: fixed;
+    top: 70px;
+    left: 305px;
+    bottom: 20px;
+    z-index: 1000;
+    width: 500px;
+    background: #fff;
+    padding: 20px 0 20px 20px;
+    @include box-white-shadow();
+}
 
 .channel {
-	height: 90%;
-	min-height: 500px;
-	/*width: 100%;*/
-	width: 500px;
-	position: absolute;
-	bottom: 20px;
-	left: 300px;
-	@include box-white-shadow();
-	/*background-color: #fff;*/
-	z-index: 10000;
-	/*border: 1px solid #777;*/
-	/*@include box-shadow(0 0 10px rgba(0,0,0,0.5));*/
-	/*padding: 10px;*/
+	height: 100%;
+	@include flex-box();
+	@include flex-direction(column);
+	@include flex-wrap(nowrap);
+	@include justify-content(space-between);
 }
 
 .channel__header {
@@ -26,36 +30,80 @@ $color-message: #f8f8f8;
 	@include flex-direction(row);
 	@include flex-wrap(nowrap);
 	@include justify-content(space-between);
-	@include align-items(center);
-	padding: 10px 15px;
+	@include align-items(flex-start);
+	padding: 0 20px 0 0;
+	min-height: 50px;
 
 	&-title {
 		font-size: $font-size-h2;
 		color: $gray-dark;
 	}
 	&-actions {
-
+		@include flex-box();
+		@include flex-direction(row);
+		@include flex-wrap(nowrap);
 	}
 }
 
 .channel__content {
-	padding: 10px 0;
+	overflow-y: auto;
+	@include flex-box();
+	@include flex-direction(column);
+	@include flex-wrap(nowrap);
+	@include justify-content(space-between);
+}
+
+.channel__sendarea {
+	min-height: 50px;
+	margin: 15px 20px 0 0;
+	/*@include border-radius(6px);*/
+	border: 1px solid $gray-light;
+	@include flex-box();
+	@include flex-direction(row);
+	@include flex-wrap(nowrap);
+	@include justify-content(space-between);
+	@include align-items(stretch);
+
+	&-actions {
+		width: 40px;
+		text-align: center;
+		background-color: $color-message;
+		padding: 15px 0 0 0;
+	}
+	&-textarea {
+		padding: 5px;
+		width: 100%;
+
+		textarea{
+			border: none;
+			width: 100%;
+			min-height: 40px;
+			&:focus {
+				outline: none;
+			}
+		}
+	}
+	&-emoji {
+		width: 50px;
+		text-align: center;
+		background-color: $color-message;
+		padding: 15px 0 0 0;
+	}
 }
 
 .channel__history {
-	width: 500px;
-	overflow-y: auto;
-	height: 500px;
+	width: 100%;
+	padding: 0 20px 0 0;
 
 	&-alert {
 		position: absolute;
-		top: 50px;
+		top: 60px;
+		left: 0;
 		width: 75%;
 		padding: 5px 20px;
 		background-color: $brand-success;
 		color: #fff;
-		z-index: 500;
-		font-size: 14px;
+		z-index: 5000;
 		border-radius: 0 5px 5px 0;
 
 		&-action {
@@ -66,42 +114,48 @@ $color-message: #f8f8f8;
 	}
 }
 
-.channel__message {
-	width: 500px;
-	padding: 10px 25px 10px 20px;
+
+
+
+/* Message */
+
+.message {
+	margin: 10px 0 20px 0;
 	@include flex-box();
 	@include flex-direction(column);
 	@include flex-wrap(nowrap);
 	@include align-items(flex-start);
 
-	&-info {
+	&__info {
 		@include flex-box();
 		@include flex-direction(row);
 		@include flex-wrap(nowrap);
 		@include justify-content(space-between);
 		@include align-items(center);
 		width: 400px;
+		max-width: 400px;
 	}
-	&-user {
-		font-size: $font-size-h3;
+	&__user {
+		font-size: $font-size-h4;
+		color: $gray-dark;
 		margin: 5px 0 10px 0;
 		text-align: left;
 		@include flex-grow(5);
 	}
-	&-actions {
-		/*@include flex-grow(1);*/
+	&__actions {
+		
 	}
-	&-time {
+	&__time {
 		padding: 0 0 0 10px;
-		/*@include flex-grow(1);*/
 	}
-	&-body {
+	&__body {
 		position: relative;
 		background-color: $color-message;
 		@include border-radius(6px);
 		padding: 10px 20px;
 		word-wrap: break-word;
 		width: 400px;
+		max-width: 400px;
 
 		&:before{
 			content: '';
@@ -112,7 +166,7 @@ $color-message: #f8f8f8;
 		}
 	}
 
-	&-date {
+	&__date {
 		text-align: center;
 		font-style: italic;
 		font-size: 12px;
@@ -136,17 +190,17 @@ $color-message: #f8f8f8;
 	/* My message */
 	&[data-state=my] {
 		@include align-items(flex-end);
-		.channel__message {
-			&-user { 
+		.message {
+			&__user { 
 				order: 3;
 				text-align: right;
 			}
-			&-actions { order: 2; }
-			&-time {
+			&__actions { order: 2; }
+			&__time {
 				padding: 0 10px 0 0;
 				order: 1;
 			}
-			&-body {
+			&__body {
 				background-color: $color-message-my;
 				text-align: right;
 				&:before{
