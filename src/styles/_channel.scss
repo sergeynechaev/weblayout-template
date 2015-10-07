@@ -1,0 +1,161 @@
+/* channel message's history */
+
+
+$color-message-my: #e9f2fb;
+$color-message: #f8f8f8;
+
+
+.channel {
+	height: 90%;
+	min-height: 500px;
+	/*width: 100%;*/
+	width: 500px;
+	position: absolute;
+	bottom: 20px;
+	left: 300px;
+	@include box-white-shadow();
+	/*background-color: #fff;*/
+	z-index: 10000;
+	/*border: 1px solid #777;*/
+	/*@include box-shadow(0 0 10px rgba(0,0,0,0.5));*/
+	/*padding: 10px;*/
+}
+
+.channel__header {
+	@include flex-box();
+	@include flex-direction(row);
+	@include flex-wrap(nowrap);
+	@include justify-content(space-between);
+	@include align-items(center);
+	padding: 10px 15px;
+
+	&-title {
+		font-size: $font-size-h2;
+		color: $gray-dark;
+	}
+	&-actions {
+
+	}
+}
+
+.channel__content {
+	padding: 10px 0;
+}
+
+.channel__history {
+	width: 500px;
+	overflow-y: auto;
+	height: 500px;
+
+	&-alert {
+		position: absolute;
+		top: 50px;
+		width: 75%;
+		padding: 5px 20px;
+		background-color: $brand-success;
+		color: #fff;
+		z-index: 500;
+		font-size: 14px;
+		border-radius: 0 5px 5px 0;
+
+		&-action {
+			font-weight: 400;
+			cursor: pointer;
+			border-bottom: 1px dotted;
+		}
+	}
+}
+
+.channel__message {
+	width: 500px;
+	padding: 10px 25px 10px 20px;
+	@include flex-box();
+	@include flex-direction(column);
+	@include flex-wrap(nowrap);
+	@include align-items(flex-start);
+
+	&-info {
+		@include flex-box();
+		@include flex-direction(row);
+		@include flex-wrap(nowrap);
+		@include justify-content(space-between);
+		@include align-items(center);
+		width: 400px;
+	}
+	&-user {
+		font-size: $font-size-h3;
+		margin: 5px 0 10px 0;
+		text-align: left;
+		@include flex-grow(5);
+	}
+	&-actions {
+		/*@include flex-grow(1);*/
+	}
+	&-time {
+		padding: 0 0 0 10px;
+		/*@include flex-grow(1);*/
+	}
+	&-body {
+		position: relative;
+		background-color: $color-message;
+		@include border-radius(6px);
+		padding: 10px 20px;
+		word-wrap: break-word;
+		width: 400px;
+
+		&:before{
+			content: '';
+			position: absolute;
+			top: -16px; left: 15px;
+			border: 8px solid transparent;
+			border-bottom: 8px solid $color-message;
+		}
+	}
+
+	&-date {
+		text-align: center;
+		font-style: italic;
+		font-size: 12px;
+		&:before, &:after{
+			content: '';
+		    border-bottom: 1px solid $brand-success;
+		    display: inline-block;
+		    width: 100px;
+		    position: relative;
+		}
+		&:before, &:after{
+		    top: -4px;
+		    right: 10px;
+		}
+		&:after{
+		    top: -4px;
+		    left: 10px;
+		}
+	}
+
+	/* My message */
+	&[data-state=my] {
+		@include align-items(flex-end);
+		.channel__message {
+			&-user { 
+				order: 3;
+				text-align: right;
+			}
+			&-actions { order: 2; }
+			&-time {
+				padding: 0 10px 0 0;
+				order: 1;
+			}
+			&-body {
+				background-color: $color-message-my;
+				text-align: right;
+				&:before{
+					border-bottom-color: $color-message-my;
+					left: auto;
+					right: 15px;
+				}
+			}
+		}
+	}
+
+}

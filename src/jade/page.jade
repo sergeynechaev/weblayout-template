@@ -4,6 +4,54 @@ html
 	body
 		.page
 			.sidebar
+				//- message history
+				.channel
+					.channel__header
+						.channel__header-title Чат: Сергей Нечаев
+						.channel__header-actions [x] [-]
+					.channel__content
+						div 
+							.channel__history#channel-history--1
+
+								.channel__message#channel-message--1
+									.channel__message-info 
+										.channel__message-user Сергей Нечаев
+										.channel__message-actions [ред] [del]
+										.channel__message-time 10:56
+									.channel__message-body Содержимое сообщений
+
+								.channel__message#channel-message--2(data-state="my")
+									.channel__message-info 
+										.channel__message-user Вы
+										.channel__message-actions [ред] [del]
+										.channel__message-time 10:56
+									.channel__message-body А вот еще случай был? А вот еще случай был, тут такое динное длинное предложение в несколько длинных длинных строк.
+
+								.channel__message#channel-message--3
+									.channel__message-info 
+										.channel__message-user Илья Суходольский
+										.channel__message-actions [ред] [del]
+										.channel__message-time 10:56
+									.channel__message-body Ох ты ж нифига себе!
+
+								.channel__message#channel-message--4(data-state="my")
+									.channel__message-info 
+										.channel__message-user Вы
+										.channel__message-actions [ред] [del]
+										.channel__message-time 10:56
+									.channel__message-body А вот еще случай был? А вот еще случай был, тут такое динное длинное предложение в несколько длинных длинных строк.
+
+								.channel__message#channel-message--5(data-state="my")
+									.channel__message-info 
+										.channel__message-user Вы
+										.channel__message-actions [ред] [del]
+										.channel__message-time 10:56
+									.channel__message-body А вот еще случай был? А вот еще случай был, тут такое динное длинное предложение в несколько длинных длинных строк.
+
+							.channel__history-alert.hidden Есть новые сообщения. 
+								span.channel__history-alert-action Посмотреть
+
+				//- contact-center sidebar
 				.contact-center(data-state="collapse")
 
 					.contact-center__block

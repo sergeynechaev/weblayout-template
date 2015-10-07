@@ -37,9 +37,12 @@ $font-size-h1:				1.714rem !default;
 $font-size-h2:				1.429rem !default;
 $font-size-h3:				1.286rem !default;
 
+$font-size-small:			0.857rem !default;
+
 $headers-color:				$gray-dark;
 
 $font-weight-base:			400 !default;
+$font-weight-light:			300 !default;
 
 $line-height:               1.357 !default;
 
@@ -98,9 +101,13 @@ $icon-fill:					$gray-dark;
 $icon-hover-fill:			darken($icon-fill, 15%);
 
 //- Tooltip
+$tooltip-position: 			relative !default;
 $tooltip-background:		#424242;
 $tooltip-color:				#fff;
 $tooltip-size:				0.857rem;
+
+//- ImageHint
+$imagehint-background:		rgba(38, 50, 56, 0.7);
 
 
 //- Forms
@@ -108,4 +115,6 @@ $tooltip-size:				0.857rem;
 $input-font-size:			1rem;
 $input-border-color:		$brand-default;
 $input-border-color-focus: 	$brand-primary		
+
+
 

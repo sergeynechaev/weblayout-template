@@ -1,6 +1,6 @@
 {
-  "name": "test-gulp",
-  "version": "0.0.0",
+  "name": "weblayout-template",
+  "version": "0.0.1",
   "authors": [
     "Sergey Nechaev"
   ],
@@ -14,8 +14,8 @@
   ],
   "dependencies": {
     "normalize.css": "*",
-    "jquery": "2.*",
-    "react": "~0.13.3"
+    "jquery": "2.*"//,
+    // "react": "~0.13.3"
   }
   // "overrides": {
   //   "bootstrap": {
