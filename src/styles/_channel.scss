@@ -45,13 +45,41 @@ $font-size-h4: 1.142rem !default;
 	}
 }
 
-.channel__content {
+.channel__history {
+	width: 100%;
+	padding: 0 20px 0 0;
+	overflow-y: auto;
+/*	@include flex-box();
+	@include flex-direction(column);
+	@include flex-wrap(nowrap);
+	@include justify-content(space-between);*/
+
+	&-alert {
+		position: absolute;
+		top: 60px;
+		left: 0;
+		width: 75%;
+		padding: 5px 20px;
+		background-color: $brand-success;
+		color: #fff;
+		z-index: 5000;
+		border-radius: 0 5px 5px 0;
+
+		&-action {
+			font-weight: 400;
+			cursor: pointer;
+			border-bottom: 1px dotted;
+		}
+	}
+}
+
+/*.channel__content {
 	overflow-y: auto;
 	@include flex-box();
 	@include flex-direction(column);
 	@include flex-wrap(nowrap);
 	@include justify-content(space-between);
-}
+}*/
 
 .channel__sendarea {
 	min-height: 50px;
@@ -91,28 +119,7 @@ $font-size-h4: 1.142rem !default;
 	}
 }
 
-.channel__history {
-	width: 100%;
-	padding: 0 20px 0 0;
 
-	&-alert {
-		position: absolute;
-		top: 60px;
-		left: 0;
-		width: 75%;
-		padding: 5px 20px;
-		background-color: $brand-success;
-		color: #fff;
-		z-index: 5000;
-		border-radius: 0 5px 5px 0;
-
-		&-action {
-			font-weight: 400;
-			cursor: pointer;
-			border-bottom: 1px dotted;
-		}
-	}
-}
 
 
 
@@ -192,13 +199,13 @@ $font-size-h4: 1.142rem !default;
 		@include align-items(flex-end);
 		.message {
 			&__user { 
-				order: 3;
+				@include order(3);
 				text-align: right;
 			}
-			&__actions { order: 2; }
+			&__actions { @include order(2); }
 			&__time {
 				padding: 0 10px 0 0;
-				order: 1;
+				@include order(1);
 			}
 			&__body {
 				background-color: $color-message-my;
@@ -211,5 +218,4 @@ $font-size-h4: 1.142rem !default;
 			}
 		}
 	}
-
 }
