@@ -155,7 +155,17 @@ $font-size-h4: 1.142rem !default;
 	&__time {
 		padding: 0 0 0 10px;
 	}
+
 	&__body {
+		@include flex-box();
+		@include flex-direction(row);
+		@include flex-wrap(nowrap);
+		@include align-items(center);
+	}
+	&__body-action {
+		padding-right: 10px;
+	}
+	&__body-text {
 		position: relative;
 		background-color: $color-message;
 		@include border-radius(6px);
@@ -172,6 +182,7 @@ $font-size-h4: 1.142rem !default;
 			border-bottom: 8px solid $color-message;
 		}
 	}
+
 
 	&__date {
 		text-align: center;
@@ -207,7 +218,7 @@ $font-size-h4: 1.142rem !default;
 				padding: 0 10px 0 0;
 				@include order(1);
 			}
-			&__body {
+			&__body-text {
 				background-color: $color-message-my;
 				text-align: right;
 				&:before{

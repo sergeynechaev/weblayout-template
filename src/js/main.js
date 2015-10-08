@@ -4,25 +4,29 @@ $(document).ready(function() {
 
     $('.contact-center__block-header').click( function() {
         $(this).parent().attr( 'data-state', !$(this).parent().attr('data-state') ? 'collapse' : '' );
-    })
+    });
+
+    $('.contact-center__elem').click( function() {
+        console.log('elem clicked oT= ' + this.offsetTop + " rect= " + this.getBoundingClientRect().top);
+    });
 });
 
 
-window.onload = function () {
+// window.onload = function () {
 
-    var elements = document.querySelectorAll('.contact-center__elem');
-    // console.log(elements);
+//     var elements = document.querySelectorAll('.contact-center__elem');
+//     // console.log(elements);
 
-    for( var i = 0; i < elements.length || 0; i++) {
-     // console.log(elements[i]);
-     elements[i].addEventListener('click', function(e) {
-         // e.target = clicked element
-         console.log('elem clicked oT= ' + this.offsetTop + " rect= " + this.getBoundingClientRect().top);
-         // this.parentNode.dataset.state = !this.parentNode.dataset.state ? 'collapse' : '';
-         // console.log('clicked = ' + this.parentNode.dataset.state);
-     });
-    }
-}
+//     for( var i = 0; i < elements.length || 0; i++) {
+//      // console.log(elements[i]);
+//      elements[i].addEventListener('click', function(e) {
+//          // e.target = clicked element
+//          console.log('elem clicked oT= ' + this.offsetTop + " rect= " + this.getBoundingClientRect().top);
+//          // this.parentNode.dataset.state = !this.parentNode.dataset.state ? 'collapse' : '';
+//          // console.log('clicked = ' + this.parentNode.dataset.state);
+//      });
+//     }
+// }
 
 
 
