@@ -1,5 +1,5 @@
 .row {
-  margin-top: 0.5rem;
+  //margin-top: 0.5rem;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -7,32 +7,32 @@
 
 .col {
   flex: 1 1 8%;
-  margin: 0 0 0.5rem 0;
-  padding: 0.5em 10px;
+  //margin: 0 0 0.5rem 0;
+  //padding: 0.5em 10px;
   box-sizing: border-box;
 }
 
 /* nested grids */
-.row .row, .row.nested {
-  flex: 1 1 auto;
-  margin-top: -0.5em;
-}
+//.row .row, .row.nested {
+//  flex: 1 1 auto;
+//  margin-top: -0.5em;
+//}
 
 /* full width grids */
-.row.wide-fit {
-  margin-left: -10px;
-  margin-right: -10px;
-}
+//.row.wide-fit {
+//  margin-left: -10px;
+//  margin-right: -10px;
+//}
 
 /* center grids */
-.row.center {
-  justify-content: center;
-}
+//.row.center {
+//  justify-content: center;
+//}
 
-.center .col {
-  flex-grow: 0;
-  flex-shrink: 0;
-}
+//.center .col {
+//  flex-grow: 0;
+//  flex-shrink: 0;
+//}
 
 /* columns widths */
 
@@ -86,10 +86,10 @@
 
 /* examples */
 
-.fixed-width {
-  flex: 0 0 500px;
-  background-color: rgba(255,0,0,0.1) !important;
-}
+//.fixed-width {
+//  flex: 0 0 500px;
+//  background-color: rgba(255,0,0,0.1) !important;
+//}
 
 @media all and (max-width: 568px) {
   .col-span-1,
@@ -109,9 +109,9 @@
     flex-basis: 100%;
   }
 
-  .nested .col {
-    flex-basis: 100%;
-  }
+  //.nested .col {
+  //  flex-basis: 100%;
+  //}
 
 }
 
