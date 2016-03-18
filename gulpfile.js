@@ -28,13 +28,14 @@ var del = require('del');
 /* Settings */
 var	reload = browserSync.reload;
 var serverConfig = {
-	    server: {
-	        baseDir: "./build"
-	    },
-	    tunnel: false,
-	    host: 'localhost',
-	    port: 9000,
-	    logPrefix: "Gulp Weblayout Server"
+	server: {
+		baseDir: "./build"
+	},
+	tunnel: false,
+	host: 'localhost',
+	port: 9000,
+	logPrefix: "Gulp WebServer",
+	open: false	// Stop the browser from automatically opening
 };
 
 /* Paths */
