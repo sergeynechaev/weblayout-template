@@ -1,11 +1,11 @@
 {
-  "name": "flex-grid",
+  "name": "weblayout-template",
   "version": "0.1.0",
-  "description": "Flex grid web layout",
+  "description": "Starter template for building a web layout using gulp, sass and jade",
   "main": "index.html",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sergeynechaev/flex-grid.git"
+    "url": "https://github.com/sergeynechaev/weblayout-template.git"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
