@@ -1,17 +1,9 @@
-# Web layout template
-> gulp + bower + sass + compass + react
+# Weblayout template
+	Starter template for building a web layout.
+> gulp + sass + jade
 
-	This is my own starter template to simplify web layout development. It uses gulp for packaging and many pre-configured modules:
 
-* sass + compass
-* jade
-* bower
-* react
-* bootstrap
-* minimize css and js
-* optimize images
-
-## Usage
+## Install
 
 Clone this repo into your local:
 ```shell
@@ -24,11 +16,23 @@ npm install
 bower install
 ```
 
+
 ## Development
 
-Modify the files under `/src` directory.
+In the project's folder run:
+```shell
+gulp
+```
+
+Go to the http://localhost:9000 then modify the files under `/src` directory. The new content will be automatically generated in the `/build` folder. 
+Browser will refresh the page automatically after saving your changes.
 
 
 ## Production
 
-Output is in the folder `/build`
+In the project's folder run:
+```shell
+gulp prod
+```
+
+Minimized output will be placed in the folder `/build-prod`.
