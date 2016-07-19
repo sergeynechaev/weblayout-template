@@ -13,8 +13,7 @@ git clone --depth=1 https://github.com/sergeynechaev/weblayout-template.git <you
 Then, run:
 ```shell
 npm install
-bower install
-```
+``
 
 
 ## Development
