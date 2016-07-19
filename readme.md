@@ -1,6 +1,6 @@
 # Weblayout template
 	Starter template for building a web layout.
-> gulp + sass + jade
+> gulp + sass + pug
 
 
 ## Install

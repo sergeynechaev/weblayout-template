@@ -1,7 +1,7 @@
 {
   "name": "weblayout-template",
-  "version": "0.1.0",
-  "description": "Starter template for building a web layout using gulp, sass and jade",
+  "version": "0.2.0",
+  "description": "Starter template for building a web layout using gulp, sass and pug",
   "main": "index.html",
   "repository": {
     "type": "git",
@@ -26,6 +26,7 @@
     "gulp-jade": "^1.0.1",
     "gulp-load-plugins": "^0.10.0",
     "gulp-newer": "^0.5.1",
+    "gulp-pug": "^3.0.3",
     "gulp-rename": "^1.2.2",
     "gulp-rigger": "^0.5.8",
     "gulp-sass": "^2.0.3",

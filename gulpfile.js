@@ -10,7 +10,7 @@ var uglify = require('gulp-uglify');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var rigger = require('gulp-rigger');
-var jade = require('gulp-jade');
+var pug = require('gulp-pug');
 var cleanCSS = require('gulp-clean-css');
 var imagemin = require('gulp-imagemin');
 var browserSync = require("browser-sync");
@@ -57,7 +57,7 @@ var rootSrc = './src';
 var path = {
     build: {
         html: rootBuild,
-        jade: rootBuild,
+        pug: rootBuild,
         js: rootBuild + '/js',
         css: rootBuild + '/css',
         img: rootBuild + '/img',
@@ -66,7 +66,7 @@ var path = {
     },
     buildProd: {
         html: rootBuildProd,
-        jade: rootBuildProd,
+        pug: rootBuildProd,
         js: rootBuildProd + '/js',
         css: rootBuildProd + '/css',
         img: rootBuildProd + '/img',
@@ -75,14 +75,14 @@ var path = {
     },
     src: {
         html: rootSrc + '/*.html',
-        jade: [rootSrc + '/html/*.jade', '!' + rootSrc + '/html/_*.jade'],
+        pug: [rootSrc + '/html/*.pug', '!' + rootSrc + '/html/_*.pug'],
         js: rootSrc + '/js/main.js',
         style: [rootSrc + '/styles/*.scss', '!' + rootSrc + '/styles/_*.scss'],
         img: rootSrc + '/img/**/*.*',
         fonts: rootSrc + '/fonts/**/*.*'
     },
     watch: {
-        jade: rootSrc + '/html/**/*.jade',
+        pug: rootSrc + '/html/**/*.pug',
         js: rootSrc + '/js/**/*.js',
         style: rootSrc + '/styles/**/*.scss',
         img: rootSrc + '/img/**/*.*',
@@ -226,24 +226,24 @@ gulp.task('js:prod', function () {
 // html
 gulp.task('html', function(cb) {
     runSequence(
-        'jade',
+        'pug',
         'inject',
         cb);
 });
 
 
-// jade
-gulp.task('jade', function () {
-    return gulp.src(path.src.jade)
-        .pipe(jade({pretty: true}))
+// pug
+gulp.task('pug', function () {
+    return gulp.src(path.src.pug)
+        .pipe(pug({pretty: true}))
         .on('error', console.log)
-        .pipe(gulp.dest(path.build.jade))
+        .pipe(gulp.dest(path.build.pug))
 });
-gulp.task('jade:prod', function () {
-    return gulp.src(path.src.jade)
-        .pipe(jade({pretty: false}))
+gulp.task('pug:prod', function () {
+    return gulp.src(path.src.pug)
+        .pipe(pug({pretty: false}))
         .on('error', console.log)
-        .pipe(gulp.dest(path.buildProd.jade));
+        .pipe(gulp.dest(path.buildProd.pug));
 });
 
 // inject
@@ -289,7 +289,7 @@ gulp.task('build', function(cb) {
 gulp.task('build:prod', function(cb) {
     runSequence(
         'clean:prod',
-        ['sass:prod', 'jade:prod', 'js:prod', 'bower:prod', 'images:prod', 'fonts:prod'],
+        ['sass:prod', 'pug:prod', 'js:prod', 'bower:prod', 'images:prod', 'fonts:prod'],
         'inject:prod',
         cb);
 });
@@ -299,7 +299,7 @@ gulp.task('watch', function () {
     watch([path.watch.style], function () {
         gulp.start('sass');
     });
-    watch([path.watch.jade], function () {
+    watch([path.watch.pug], function () {
         gulp.start('html');
     });
     watch([path.watch.js], function () {
